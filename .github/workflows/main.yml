@@ -7,16 +7,26 @@ on: push
 jobs:
   code_quality:
     runs-on: ubuntu-latest
-    name: Checks with black, isort and possibly run tests
+    name: Checks with isort and possibly run tests
     container: python:3.12
 
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
-      - name: Run script
+
+      - name: Install system dependencies
         run: |
+          apt-get update
+          apt-get install -y libreoffice
+
+      - name: Install Python dependencies
+        run: |
+          pip install --upgrade pip
           pip install black isort pytest
           pip install -r requirements.txt
+
+      - name: Run script
+        run: |
           ls -la
           isort --profile=black --check .
-          py.test tests
+          pytest tests
