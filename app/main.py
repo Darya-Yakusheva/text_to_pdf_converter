@@ -22,7 +22,7 @@ def check_file(input_file):
     # (case-insensitive to allow both uppercase and lowercase extensions)
     if extension.lower() not in SUPPORTED_EXTENSIONS:
         raise ValueError(
-            f"Unsupported file format {extension}."
+            f"Unsupported file format {extension}. "
             f"Only .doc and .docx are supported."
         )
 
