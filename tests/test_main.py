@@ -44,7 +44,7 @@ test_exceptions_data = [
     (
         "non_supported_file.py",
         ValueError,
-        "Unsupported file format .*. Only .doc and .docx are supported.",
+        "Unsupported file format .*. \nOnly .doc and .docx are supported.",
     ),
     (
         "non_existent_file.doc",

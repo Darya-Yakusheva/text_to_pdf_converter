@@ -23,7 +23,7 @@ def check_file(input_file):
     if extension.lower() not in SUPPORTED_EXTENSIONS:
         raise ValueError(
             f"Unsupported file format {extension}. "
-            f"Only .doc and .docx are supported."
+            f"\nOnly .doc and .docx are supported."
         )
 
     # Check if the file exists on the filesystem
@@ -71,8 +71,8 @@ def convert_file(input_file, output_dir=None):
         check=True,
     )
 
-    # Return the path to the directory where the PDF is saved
-    return output_dir
+    # Return the path to the created PDF file
+    return os.path.splitext(input_file)[0] + ".pdf"
 
 
 if __name__ == "__main__":
@@ -84,13 +84,14 @@ if __name__ == "__main__":
     """
 
     # Prompt the user to enter the path to the file they want to convert
-    input_file = input("link to file: ")
+    input_file = input("Please paste here path of to file to be converted: ")
 
     # Call the convert_file function to perform the conversion
     # This function will validate the file, handle conversion,
-    # and return the output directory
-    out_dir = convert_file(input_file)
+    # and return the output filepath
+    output_file = convert_file(input_file)
 
     # Inform the user that the conversion was successful
     # and display the output directory
-    print(f"File successfully converted to PDF in: {out_dir}")
+    print(f"File successfully converted to PDF and saved here: "
+          f"{os.path.dirname(output_file)}")
