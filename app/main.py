@@ -1,10 +1,11 @@
 import os
 import subprocess
+from typing import Optional
 
 SUPPORTED_EXTENSIONS = {".doc", ".docx"}
 
 
-def check_file(input_file):
+def check_file(input_file: str) -> None:
     """
     Validates the input file for existence and supported extension.
 
@@ -21,17 +22,15 @@ def check_file(input_file):
     # Check if the file extension is in the list of supported formats
     # (case-insensitive to allow both uppercase and lowercase extensions)
     if extension.lower() not in SUPPORTED_EXTENSIONS:
-        raise ValueError(
-            f"Unsupported file format {extension}. "
-            f"\nOnly .doc and .docx are supported."
-        )
+        raise ValueError(f"Unsupported file format {extension}. "
+                         f"\nOnly .doc and .docx are supported.")
 
     # Check if the file exists on the filesystem
     if not os.path.exists(input_file):
         raise FileNotFoundError(f"Input file {input_file} does not exist.")
 
 
-def convert_file(input_file, output_dir=None):
+def convert_file(input_file: str, output_dir: Optional[str] = None) -> str:
     """
     Converts a .doc or .docx file to PDF using LibreOffice.
 
@@ -42,7 +41,7 @@ def convert_file(input_file, output_dir=None):
                                     in the same directory as the input file.
 
     Returns:
-        str: Path to the directory where the converted PDF is saved.
+        str: Path to the converted PDF file.
 
     Raises:
         ValueError: If the file extension is unsupported.
@@ -54,25 +53,25 @@ def convert_file(input_file, output_dir=None):
     # Default output directory to the input file's directory if not specified
     output_dir = output_dir or os.path.dirname(input_file)
 
+    # Name for the created pdf file
+    file_name = os.path.splitext(os.path.basename(input_file))[0] + ".pdf"
+
     # Run the LibreOffice command to convert the file to PDF
-    # - '--headless' runs LibreOffice in background mode
-    # - '--convert-to pdf' specifies the output format
-    # - '--outdir' sets the output directory
     subprocess.run(
         [
-            "libreoffice",
-            "--headless",
-            "--convert-to",
-            "pdf",
-            input_file,
-            "--outdir",
-            output_dir,
+            "libreoffice",   # Command to run LibreOffice
+            "--headless",    # Run without GUI
+            "--convert-to",  # Conversion type
+            "pdf",           # Target format
+            input_file,      # Input file to convert
+            "--outdir",      # Output directory option
+            output_dir,      # Target directory
         ],
-        check=True,
+        check=True,          # Raise CalledProcessError if command fails
     )
 
     # Return the path to the created PDF file
-    return os.path.splitext(input_file)[0] + ".pdf"
+    return os.path.join(output_dir, file_name)
 
 
 if __name__ == "__main__":
@@ -84,14 +83,18 @@ if __name__ == "__main__":
     """
 
     # Prompt the user to enter the path to the file they want to convert
-    input_file = input("Please paste here path of to file to be converted: ")
+    input_file = input("Please paste path of file to be converted: ").strip()
 
     # Call the convert_file function to perform the conversion
     # This function will validate the file, handle conversion,
     # and return the output filepath
-    output_file = convert_file(input_file)
+    try:
+        output_file = convert_file(input_file)
 
-    # Inform the user that the conversion was successful
-    # and display the output directory
-    print(f"File successfully converted to PDF and saved here: "
-          f"{os.path.dirname(output_file)}")
+        # Inform the user that the conversion was successful
+        # and display the output directory
+        print(f"File successfully converted to PDF and saved here: "
+              f"{os.path.dirname(output_file)}")
+    except subprocess.CalledProcessError:
+        print("An error occurred while converting the file. "
+              "Please check LibreOffice is installed and accessible.")
