@@ -9,7 +9,7 @@ def check_file(input_file: str) -> None:
     """
     Validates the input file for existence and supported extension.
 
-    Args:
+    Parameters:
         input_file (str): Path to the input file to validate.
 
     Raises:
@@ -34,7 +34,7 @@ def convert_file(input_file: str, output_dir: Optional[str] = None) -> str:
     """
     Converts a .doc or .docx file to PDF using LibreOffice.
 
-    Args:
+    Parameters:
         input_file (str): Path to the input file. Must be a .doc or .docx file.
         output_dir (str, optional): Directory where the PDF will be saved.
                                     If not provided, the PDF will be saved
