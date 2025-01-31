@@ -12,3 +12,5 @@ venv/
 # PyCharm configuration files
 .idea/
 
+# Local test files
+tests/fixtures/

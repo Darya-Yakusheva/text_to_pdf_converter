@@ -4,7 +4,7 @@ from pathlib import Path
 
 import pytest
 
-from app.main import check_file, convert_file
+from app.converter import check_file, convert_file
 
 
 @pytest.fixture(scope="session")
