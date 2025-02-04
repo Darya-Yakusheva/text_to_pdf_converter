@@ -1,7 +1,6 @@
 import os
 from tempfile import TemporaryDirectory
 
-from app.converter import convert_file
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import (
@@ -11,6 +10,8 @@ from telegram.ext import (
     MessageHandler,
     filters,
 )
+
+from app.converter import convert_file
 
 load_dotenv()  # Load environment variables from .env file
 
