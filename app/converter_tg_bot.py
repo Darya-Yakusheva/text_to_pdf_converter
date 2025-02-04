@@ -1,7 +1,7 @@
 import os
 from tempfile import TemporaryDirectory
 
-from converter import convert_file
+from app.converter import convert_file
 from dotenv import load_dotenv
 from telegram import Update
 from telegram.ext import (

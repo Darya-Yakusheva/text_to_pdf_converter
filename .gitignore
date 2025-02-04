@@ -14,3 +14,7 @@ venv/
 
 # Local test files
 tests/fixtures/
+
+# Build-related files
+Dockerfile
+.dockerignore
