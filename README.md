@@ -1,20 +1,26 @@
 # 📄 Text to PDF Converter Bot
 ## 👀 Overview
+
 A simple Telegram bot that converts .doc and .docx files into PDFs.\
 🚀 **No coding required!** Just use Docker to run the bot in seconds.
+
 ---
 ## 📋 Table of Contents
-- [Features](#features)
+- [Features](#-features)
 - [Quick Start](#-quick-start-for-non-developers)
 - [Installation from GitHub](#-advanced-users-for-developers)
 - [Running with Docker](#-running-with-docker-for-developers)
 - [Additional Notes](#-additional-notes)
+- [Feedback & Contributions](#-feedback--contributions)
+
 ---
 ## 📌 Features
+
 ✅ Converts .doc and .docx files to .pdf\
 ✅ Supports files up to **20MB**\
 ✅ Runs inside a **Docker container** (no need to install Python)\
 ✅ Uses **environment variables** for secure configuration
+
 ---
 ## 🛠️ Quick Start (For Non-Developers)
 
@@ -85,6 +91,7 @@ brew install --cask libreoffice
 ```bash
 python -m app.converter_tg_bot
 ```
+
 ---
 ## 🐳 Running with Docker (For Developers)
 
@@ -112,7 +119,7 @@ docker stop <container_id>
 🎉 **That’s it!** Now your bot is running inside a Docker container. 🚀
 
 ---
-## ℹ️ Additional Notes
+## 📝 Additional Notes
 - **Ensure LibreOffice is installed** if running the bot locally.
 - **Docker image includes LibreOffice** by default.
 - **Bug Reports & Contributions:** Open an issue or submit a PR on GitHub.
