@@ -22,7 +22,7 @@ A simple Telegram bot that converts .doc and .docx files into PDFs.\
 ✅ Uses **environment variables** for secure configuration
 
 ---
-## 🛠️ Quick Start (For Non-Developers)
+## 🚦 Quick Start (For Non-Developers)
 
 If you just want to use the bot **without coding**, follow these steps:
 ### 1️⃣ Install Docker
@@ -127,7 +127,7 @@ docker stop <container_id>
 **🚀 Happy converting!**
 
 ---
-## ✉️ Feedback & Contributions
+## 📨 Feedback & Contributions
 
 If you find a **bug**, **mistake**, or have a **suggestion**, you can report it in one of the following ways:
 
