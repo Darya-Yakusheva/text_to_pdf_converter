@@ -3,8 +3,13 @@ from tempfile import TemporaryDirectory
 
 from dotenv import load_dotenv
 from telegram import Update
-from telegram.ext import (ApplicationBuilder, CommandHandler, ContextTypes,
-                          MessageHandler, filters)
+from telegram.ext import (
+    ApplicationBuilder,
+    CommandHandler,
+    ContextTypes,
+    MessageHandler,
+    filters,
+)
 
 from app.converter import check_file, convert_file
 
