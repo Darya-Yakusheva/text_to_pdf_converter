@@ -42,13 +42,7 @@ def convert_file(input_file: str, output_dir: Optional[str] = None) -> str:
 
     Returns:
         str: Path to the converted PDF file.
-
-    Raises:
-        ValueError: If the file extension is unsupported.
-        FileNotFoundError: If the input file does not exist.
     """
-    # Validate the input file's existence and format
-    check_file(input_file)
 
     # Default output directory to the input file's directory if not specified
     output_dir = output_dir or os.path.dirname(input_file)
@@ -85,8 +79,11 @@ if __name__ == "__main__":
     # Prompt the user to enter the path to the file they want to convert
     input_file = input("Please paste path of file to be converted: ").strip()
 
+    # Validate the input file's existence and format
+    check_file(input_file)
+
     # Call the convert_file function to perform the conversion
-    # This function will validate the file, handle conversion,
+    # This function will handle conversion,
     # and return the output filepath
     try:
         output_file = convert_file(input_file)

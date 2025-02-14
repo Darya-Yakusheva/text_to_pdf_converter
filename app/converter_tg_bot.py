@@ -11,7 +11,7 @@ from telegram.ext import (
     filters,
 )
 
-from app.converter import convert_file
+from app.converter import convert_file, check_file
 
 load_dotenv()  # Load environment variables from .env file
 
@@ -106,13 +106,15 @@ async def convert_and_send_file(update: Update, saved_file: str, tempdirname: st
     Returns:
         None
     """
+    check_file(saved_file)
+    await update.message.reply_text(
+        "Converting your file.\n"
+        "This might take a while, please wait.\n\n"
+        "Please note that the original file name might be "
+        "slightly modified due to Telegram bot limitations."
+    )
     try:
         converted_file = convert_file(saved_file, tempdirname)
-        await update.message.reply_text(
-            "Sending you the converted file.\n\n"
-            "Please note that the original file name might be "
-            "slightly modified due to Telegram bot limitations."
-        )
         await update.message.reply_document(converted_file)
     except Exception as e:
         await update.message.reply_text(
