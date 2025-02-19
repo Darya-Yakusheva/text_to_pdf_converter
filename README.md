@@ -12,6 +12,7 @@ A simple Telegram bot that converts .doc and .docx files into PDFs.\
 - [Running with Docker](#-running-with-docker-for-developers)
 - [Additional Notes](#-additional-notes)
 - [Feedback & Contributions](#-feedback--contributions)
+- [License](#-license)
 
 ---
 ## 📌 Features
@@ -31,7 +32,7 @@ Download and install [Docker](https://www.docker.com/).
 ### 2️⃣ Create a Telegram Bot
 [Create](https://core.telegram.org/bots/features#creating-a-new-bot) your own Telegram bot using [BotFather](https://t.me/botfather).
 ### 3️⃣ Create a .env file
-In the folder where you'll run the bot, create a .env file and add your [Telegram bot token](https://core.telegram.org/bots/tutorial#obtain-your-bot-token):
+In the folder where you'll run the bot, create a **.env** file and add your [Telegram bot token](https://core.telegram.org/bots/tutorial#obtain-your-bot-token) there:
 
 `TELEGRAM_BOT_TOKEN=your_bot_token_here`
 
@@ -67,9 +68,9 @@ pip install -r requirements.txt
 **👨‍💻 Now you can make all necessary changes in the source code.**
 ### 4️⃣ Set Up Environment Variables
 
-Create a .env file in the project directory and add:
+Create a **.env** file in the project directory and add your [Telegram bot token](https://core.telegram.org/bots/tutorial#obtain-your-bot-token) there:
 `TELEGRAM_BOT_TOKEN=your_bot_token_here`\
-Replace `your_bot_token_here` with your actual token from BotFather.
+Replace `your_bot_token_here` with your actual token from [BotFather](https://t.me/botfather).
 ### Notes:
 Ensure you have LibreOffice installed if running locally. See installation steps below:
 
@@ -140,3 +141,7 @@ If you find a **bug**, **mistake**, or have a **suggestion**, you can report it 
 3️⃣ **Contact Me** – If you prefer, feel free to [reach out](https://www.linkedin.com/in/daria-iakusheva/) directly.
 
 **Your feedback is highly appreciated! 😊**
+
+---
+## 📜 License
+This project is licensed under the [MIT License](https://opensource.org/licenses/MIT).
