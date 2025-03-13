@@ -30,7 +30,11 @@ If you just want to use the bot **without coding**, follow these steps:
 
 Download and install [Docker](https://www.docker.com/).
 ### 2️⃣ Create a Telegram Bot
-[Create](https://core.telegram.org/bots/features#creating-a-new-bot) your own Telegram bot using [BotFather](https://t.me/botfather).
+[Create](https://core.telegram.org/bots/features#creating-a-new-bot) your own Telegram bot using [BotFather](https://t.me/botfather):
+- Open Telegram and search for [_@BotFather_](https://t.me/botfather)
+- Start a chat and send _/newbot_
+- Follow the instructions to set a bot name and username
+- Copy the provided **Bot Token**
 ### 3️⃣ Create a .env file
 In the folder where you'll run the bot, create a **.env** file and add your [Telegram bot token](https://core.telegram.org/bots/tutorial#obtain-your-bot-token) there:
 
